@@ -5,6 +5,12 @@ public static void chainExceptions(int input) throws IOException, MyCustomChecke
     } catch (MyCustomCheckedException e) {
         throw new IOException("Input validation failed: " + e.getMessage(), e); // Chain exceptions
     }
+    
+    private static void validateInput(int input) throws MyCustomCheckedException {
+        if (input <= 0) {
+            throw new MyCustomCheckedException("Input must be positive");
+        }
+    }
 }
 
 // Custom checked exception for chaining (d)
